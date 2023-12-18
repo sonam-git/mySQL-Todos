@@ -21,9 +21,10 @@ const createTodo = async (req, res) => {
 };
 
 const getAllTodos = async (req, res) => {
-  const getTodos = "SELECT id,todo FROM todos";
+  // const getTodos = "SELECT id AS todoId,todo AS TODO FROM todos";
+  const getAllTodos = 'SELECT * FROM todos INNER JOIN users ON todos.user_id = users.id;';
   try {
-    const [result] = await connection.query(getTodos);
+    const [result] = await connection.query(getAllTodos);
     res.json(result);
   } catch (err) {
     res.status(500).json({ err });

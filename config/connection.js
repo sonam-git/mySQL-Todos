@@ -6,7 +6,7 @@ const connection = mysql
   .createConnection({
     host: "localhost",
     user: "root",
-    password: process.env.DB_PASSWORD,
+    password: "process.env.DB_PASSWORD",
     database: "mysqlTodos",
   })
   .promise(console.log('db is connected'));
